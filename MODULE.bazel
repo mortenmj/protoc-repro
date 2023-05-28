@@ -4,10 +4,11 @@ bazel_dep(name = "com_github_envoyproxy_protoc_gen_validate", version = "0.0.0")
 bazel_dep(name = "gazelle", version = "0.0.0", repo_name = "bazel_gazelle")
 bazel_dep(name = "rules_go", version = "0.39.1", repo_name = "io_bazel_rules_go")
 
-git_override(
+archive_override(
   module_name = "com_github_envoyproxy_protoc_gen_validate",
-  remote = "https://github.com/envoyproxy/protoc-gen-validate.git",
-  commit = "78de96eb5d1698777a2895d532634858b9409584",
+  urls = ["https://github.com/bufbuild/protoc-gen-validate/archive/refs/tags/v0.9.1.zip"],
+  integrity = "sha256-A2lCBb5SxHUwRefMyUkGSYf2NV1eGkWeBycaHRS46Co=",
+  strip_prefix = "protoc-gen-validate-0.9.1",
   patches = ["//:protoc.patch"],
 )
 
